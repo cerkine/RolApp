@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Dam07_App</string>
+    <string name="loginbtn">Entrar</string>
+    <string name="registarbtn">Registrar</string>
+    <string name="usuario">Usuario</string>
+    <string name="contraseñaUsuario">Contraseña</string>
+    <string name="contraseñaRepiteUsuario">Repite Contraseña</string>
+    <string name="nuevapartidabtn">Nueva Partida</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="tab_text_1">STATS</string>
+    <string name="tab_text_2">PJ</string>
+    <string name="tab_text_3">MAP</string>
+    <string name="tab_text_4">NOTAS</string>
+    <string name="search_stats">Stats...</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_partida_nueva">PartidaNuevaActivity</string>
+    <string name="codigo_partida">Codigo Partida</string>
+    <string name="master">Master</string>
+    <string name="jugador">Jugador</string>
+    <string name="nombrePj">Nombre PJ</string>
+    <string name="edadPj">Edad PJ</string>
+    <string name="crearpartidabtn">Crear</string>
+    <string name="unirsepartidabtn">Unirse</string>
+    <string name="claseGuerrero">Guerrero</string>
+    <string name="claseMago">Mago</string>
+    <string name="claseCazador">Cazador</string>
+
+</resources>

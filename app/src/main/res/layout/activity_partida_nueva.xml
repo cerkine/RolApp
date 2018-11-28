@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PartidaNuevaActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+
+        android:src="@drawable/fondoinicio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/etnumeroPartida"
+        style="@style/textLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="90dp"
+        android:hint="@string/codigo_partida"
+        android:inputType="text"
+        android:textColorHint="@color/amarillo_claro"
+        android:textColor="@color/amarillo_claro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+    <TextView
+        android:id="@+id/tvnumeroPartida"
+        style="@style/textLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="90dp"
+        android:hint="@string/codigo_partida"
+        android:textColorHint="@color/amarillo_claro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="104dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/btnMaster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/master"
+            android:textColor="@color/amarillo_claro"
+            android:textSize="35sp" />
+
+        <RadioButton
+            android:id="@+id/btnJugador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jugador"
+            android:textColor="@color/amarillo_claro"
+            android:textSize="35sp"
+            android:layout_marginTop="8dp"/>
+
+    </RadioGroup>
+
+
+    <EditText
+        android:id="@+id/etnombrePj"
+        style="@style/textLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
+        android:hint="@string/nombrePj"
+        android:inputType="text"
+        android:textColorHint="@color/amarillo_claro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etnumeroPartida"
+        android:textColor="@color/amarillo_claro"/>
+
+
+    <Button
+        android:id="@+id/btnUnirsePartida"
+        style="@style/textLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="108dp"
+        android:background="@drawable/btnredondoentrar"
+        android:hint="@string/unirsepartidabtn"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnCrearPartida"
+        style="@style/textLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="108dp"
+
+        android:background="@drawable/btnredondoregistrar"
+        android:hint="@string/crearpartidabtn"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

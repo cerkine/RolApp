@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "564286101021",
+    "firebase_url": "https://dam07app.firebaseio.com",
+    "project_id": "dam07app",
+    "storage_bucket": "dam07app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564286101021:android:b86bf1691d6fb671",
+        "android_client_info": {
+          "package_name": "com.example.cerkine.dam07_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564286101021-u83dcdnolvqul05uorfc4j67i85m74n1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cerkine.dam07_app",
+            "certificate_hash": "cd3dbf701fc66dc1c49e2bba848a8ee23b9640c6"
+          }
+        },
+        {
+          "client_id": "564286101021-0n70mcquiooefeuiveio2l2i77g3g358.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnq4WWaHZ1vECKpxB0QtXDsGy4awjvzTI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564286101021-0n70mcquiooefeuiveio2l2i77g3g358.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
