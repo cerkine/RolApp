@@ -8,12 +8,12 @@
     android:id="@+id/partidaActivity">
 
     <ImageView
-
+        android:id="@+id/fondoPart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@drawable/fondoinicio"/>
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
         android:layout_marginTop="90dp">
 
         <LinearLayout
-            style="@style/partidaLinear">>
+            style="@style/partidaLinear">
             <TextView
                 style="@style/textLogin"
                 android:layout_width="0dp"
@@ -40,7 +40,7 @@
         </LinearLayout>
 
     <LinearLayout
-        style="@style/partidaLinear">>
+        style="@style/partidaLinear">
         <TextView
             style="@style/textLogin"
             android:layout_width="0dp"

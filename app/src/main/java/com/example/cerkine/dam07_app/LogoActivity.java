@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 public class LogoActivity extends AppCompatActivity {
 
@@ -11,6 +14,7 @@ public class LogoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo);
+        GlideApp.with(this).load(R.drawable.fondoinicio).into((ImageView)findViewById(R.id.fondoLogo));
         findViewById(R.id.logoActivity).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view)
             {

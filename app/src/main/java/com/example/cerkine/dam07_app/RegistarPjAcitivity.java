@@ -7,6 +7,7 @@ import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 public class RegistarPjAcitivity extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class RegistarPjAcitivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registar_pj);
+        GlideApp.with(this).load(R.drawable.fondoinicio).into((ImageView)findViewById(R.id.fondoRegPj));
 
         Spinner spinner = findViewById(R.id.spClasePj);
         String[] clase = {"Guerrero","Mago","Cazador"};

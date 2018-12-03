@@ -7,12 +7,11 @@
     tools:context=".PartidaNuevaActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/fondoPN"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
 
-        android:src="@drawable/fondoinicio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -107,7 +106,7 @@
         android:background="@drawable/btnredondoentrar"
         android:hint="@string/unirsepartidabtn"
         android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
