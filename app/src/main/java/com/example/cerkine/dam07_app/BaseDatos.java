@@ -12,16 +12,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class BaseDatos {
+public  class BaseDatos {
 
-     FirebaseDatabase database = FirebaseDatabase.getInstance();
-     DatabaseReference myRef = database.getReference();
-     final String USUARIOS = "Usuarios";
+     static FirebaseDatabase database = FirebaseDatabase.getInstance();
+     static DatabaseReference myRef = database.getReference();
+     final static String USUARIOS = "Usuarios";
 
-    public void crearUsuario( ){
+    public static void crearUsuario(Clase clase ){
 
-        Clase clase = new Clase();
 
-        myRef.child(USUARIOS).child(FirebaseAuth.getInstance().getUid()).setValue(clase);
+        myRef.child(USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(clase.getNombre()).setValue(clase);
     }
 }

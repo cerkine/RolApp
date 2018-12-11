@@ -27,7 +27,7 @@ public class PartidaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ManagamentUser.crearUsuario();
+
                 Intent intent = new Intent(PartidaActivity.this,PartidaNuevaActivity.class);
                 startActivity(intent);
             }

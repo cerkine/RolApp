@@ -9,7 +9,7 @@ public class Clase {
 
     }
 
-    public Clase(String partida, String nombre, String edad, String altura, String peso, String dinero, String vida, String ataque, String defensa, String agilidad, String fuerza, String espiritu, String destreza, String resistencia, String suerte, String intelecto, String sabiduria) {
+    public Clase(String partida, String nombre, String edad, String altura, String peso, String dinero, String vida, String ataque, String defensa, String agilidad, String fuerza, String espiritu, String destreza, String resistencia, String suerte, String intelecto, String sabiduria, String tipo) {
         this.partida = partida;
         this.nombre = nombre;
         this.edad = edad;
@@ -27,12 +27,13 @@ public class Clase {
         this.suerte = suerte;
         this.intelecto = intelecto;
         this.sabiduria = sabiduria;
+        this.tipo = tipo;
     }
 
     private String partida;
 
 
-
+    private String tipo = "admin";
     private String nombre="admin";
     private String edad="admin";
     private String altura="admin";
@@ -49,6 +50,8 @@ public class Clase {
     private String suerte="admin";
     private String intelecto="admin";
     private String sabiduria="admin";
+    private String sexo = "admin";
+    private String honorifico = "admin";
 
 //
 //    public String[] getTipo() {
@@ -194,6 +197,18 @@ public class Clase {
     public void setPartida(String partida) {
         this.partida = partida;
     }
+
+    public String getTipo(){ return tipo;}
+
+    public void setTipo(String tipo){ this.tipo = tipo;}
+
+    public String getSexo(){return sexo;}
+
+    public void setSexo(String sexo){ this.sexo = sexo;}
+
+    public String getHonorifico(){ return honorifico;}
+
+    public void setHonorifico(String honorifico){ this.honorifico = honorifico;}
 
 
 

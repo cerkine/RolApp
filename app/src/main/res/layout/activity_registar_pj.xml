@@ -8,22 +8,26 @@
 
 
     <ImageView
-        android:id="@+id/fondoRegPj"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/fondoRegPj"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
-        android:id="@+id/etnombrePjregistrar"
+        android:id="@+id/ethonorificoPjregistrar"
         android:layout_width="173dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginTop="84dp"
+        android:inputType="text"
+        android:hint="@string/nombrePjRegistrar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColorHint="@color/amarillo_claro"
+        android:textColor="@color/amarillo_claro"/>
 
     <EditText
         android:id="@+id/etedadpj"
@@ -31,8 +35,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginTop="36dp"
+        android:inputType="number"
+        android:hint="@string/edadPjRegistrar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etnombrePjregistrar" />
+        app:layout_constraintTop_toBottomOf="@id/etrazaPj"
+        android:textColorHint="@color/amarillo_claro"
+        android:textColor="@color/amarillo_claro"/>
 
     <EditText
         android:id="@+id/etrazaPj"
@@ -40,31 +48,75 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginTop="36dp"
+        android:inputType="text"
+        android:hint="@string/razaPjRegistrar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etedadpj" />
+        app:layout_constraintTop_toBottomOf="@id/ethonorificoPjregistrar"
+        android:textColorHint="@color/amarillo_claro"
+        android:textColor="@color/amarillo_claro"/>
+    <EditText
+            android:id="@+id/etalturaPj"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="@string/alturaPjRegistrar"
+            android:textColorHint="@color/amarillo_claro"
+            android:layout_marginEnd="84dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="36dp"
+            app:layout_constraintTop_toBottomOf="@id/etedadpj"
+            android:textColor="@color/amarillo_claro"/>
+    <EditText
+            android:id="@+id/etPesoPj"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/pesoPjRegistrar"
+            android:inputType="number"
+            android:textColorHint="@color/amarillo_claro"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="84dp"
+            app:layout_constraintTop_toBottomOf="@id/etalturaPj"
+            android:textColor="@color/amarillo_claro"/>
 
     <Spinner
-        android:id="@+id/spSexoPj"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etrazaPj">
+            android:id="@+id/spSexoPj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="36dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etedadpj"
+            android:textColorHint="@color/amarillo_claro"
+            android:textColor="@color/amarillo_claro">
 
     </Spinner>
 
 
     <Spinner
-        android:id="@+id/spClasePj"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spSexoPj">
+            android:id="@+id/spClasePj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="92dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spSexoPj"
+            android:textColorHint="@color/amarillo_claro"
+            android:textColor="@color/amarillo_claro">
 
     </Spinner>
+
+
+    <Button
+            android:id="@+id/btnAceptarPj"
+            style="@style/textLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/btnredondoentrar"
+            android:hint="@string/loginbtn"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spClasePj"
+            android:layout_marginStart="148dp"/>
 
 
 </android.support.constraint.ConstraintLayout>

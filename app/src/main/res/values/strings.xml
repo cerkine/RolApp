@@ -25,5 +25,11 @@
     <string name="claseGuerrero">Guerrero</string>
     <string name="claseMago">Mago</string>
     <string name="claseCazador">Cazador</string>
+    <string name="razaPjRegistrar">Raza</string>
+    <string name="edadPjRegistrar">Edad</string>
+    <string name="nombrePjRegistrar">Nombre</string>
+    <string name="alturaPjRegistrar">Altura</string>
+    <string name="pesoPjRegistrar">Peso</string>
+
 
 </resources>
