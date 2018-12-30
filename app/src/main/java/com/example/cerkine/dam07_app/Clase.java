@@ -1,5 +1,10 @@
 package com.example.cerkine.dam07_app;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
+@Entity
 public class Clase {
 
 //    private String[] tipo= {"Guerrero","Mago","Cazador"};
@@ -30,28 +35,35 @@ public class Clase {
         this.tipo = tipo;
     }
 
+    @PrimaryKey@NonNull
+    private String key ;
+    public void setKey(String nada) { key =partida+nombre;}
+
+    public String getKey(){return key;}
+
     private String partida;
+    private String nombre;
 
 
-    private String tipo = "admin";
-    private String nombre="admin";
-    private String edad="admin";
-    private String altura="admin";
-    private String peso="admin";
-    private String dinero="admin";
-    private String vida="admin";
-    private String ataque="admin";
-    private String defensa="admin";
-    private String agilidad="admin";
-    private String fuerza="admin";
-    private String espiritu="admin";
-    private String destreza="admin";
-    private String resistencia="admin";
-    private String suerte="admin";
-    private String intelecto="admin";
-    private String sabiduria="admin";
-    private String sexo = "admin";
-    private String honorifico = "admin";
+    private String tipo ;
+
+    private String edad;
+    private String altura;
+    private String peso;
+    private String dinero;
+    private String vida;
+    private String ataque;
+    private String defensa;
+    private String agilidad;
+    private String fuerza;
+    private String espiritu;
+    private String destreza;
+    private String resistencia;
+    private String suerte;
+    private String intelecto;
+    private String sabiduria;
+    private String sexo;
+    private String honorifico;
 
 //
 //    public String[] getTipo() {

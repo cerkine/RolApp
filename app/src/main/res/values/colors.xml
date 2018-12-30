@@ -18,4 +18,5 @@
     <color name="black">#000000</color>
     <color name="rojo_claro">#F9AD9E</color>
     <color name="amarillo_claro">#FFFCC9</color>
+    <color name="transparente">#00000000</color>
 </resources>

@@ -6,6 +6,7 @@
     <string name="contraseñaUsuario">Contraseña</string>
     <string name="contraseñaRepiteUsuario">Repite Contraseña</string>
     <string name="nuevapartidabtn">Nueva Partida</string>
+    <string name="cargarPartida">Cargar Partidas</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="tab_text_1">STATS</string>
     <string name="tab_text_2">PJ</string>

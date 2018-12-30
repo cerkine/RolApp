@@ -1,6 +1,8 @@
 package com.example.cerkine.dam07_app;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,7 +16,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 public class RegistarPjAcitivity extends AppCompatActivity {
+
+    private final Executor executor = Executors.newFixedThreadPool(2);
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +41,8 @@ public class RegistarPjAcitivity extends AppCompatActivity {
         spinner2.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, sexo));
 
 
+
+
         findViewById(R.id.btnAceptarPj).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +58,7 @@ public class RegistarPjAcitivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 EditText et;
                                 Spinner sp;
-                                Clase clase = new Clase();
+                                final Clase clase = new Clase();
 
                                 et = findViewById(R.id.ethonorificoPjregistrar);
                                 clase.setHonorifico(et.getText().toString());
@@ -69,6 +79,9 @@ public class RegistarPjAcitivity extends AppCompatActivity {
                                 clase.setPartida(bundle.get("keyPartida").toString());
 
                                 BaseDatos.crearUsuario(clase);
+
+                                Intent intent = new Intent(RegistarPjAcitivity.this, GeneralActivity.class);
+                                startActivity(intent);
 
                             }
                         })

@@ -14,13 +14,14 @@ import com.google.firebase.database.ValueEventListener;
 
 public  class BaseDatos {
 
-     static FirebaseDatabase database = FirebaseDatabase.getInstance();
-     static DatabaseReference myRef = database.getReference();
-     final static String USUARIOS = "Usuarios";
 
-    public static void crearUsuario(Clase clase ){
+    static FirebaseDatabase database = FirebaseDatabase.getInstance();
+    static DatabaseReference myRef = database.getReference();
+    final static String USUARIOS = "Usuarios";
 
+    public static void crearUsuario(Clase clase){
+        clase.setKey("");
+        myRef.child(USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(clase.getKey()).child(clase.getNombre()).setValue(clase);
 
-        myRef.child(USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(clase.getNombre()).setValue(clase);
     }
 }
