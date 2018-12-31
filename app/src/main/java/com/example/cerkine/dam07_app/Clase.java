@@ -1,41 +1,24 @@
 package com.example.cerkine.dam07_app;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
-
-@Entity
-public class Clase {
-
-//    private String[] tipo= {"Guerrero","Mago","Cazador"};
+class Clase {
 
 
     public Clase (){
 
     }
 
-    public Clase(String partida, String nombre, String edad, String altura, String peso, String dinero, String vida, String ataque, String defensa, String agilidad, String fuerza, String espiritu, String destreza, String resistencia, String suerte, String intelecto, String sabiduria, String tipo) {
+    public Clase(String partida, String nombre, String edad, String altura, String peso, String dinero, String tipo,String nivel, String exp) {
         this.partida = partida;
         this.nombre = nombre;
         this.edad = edad;
         this.altura = altura;
         this.peso = peso;
         this.dinero = dinero;
-        this.vida = vida;
-        this.ataque = ataque;
-        this.defensa = defensa;
-        this.agilidad = agilidad;
-        this.fuerza = fuerza;
-        this.espiritu = espiritu;
-        this.destreza = destreza;
-        this.resistencia = resistencia;
-        this.suerte = suerte;
-        this.intelecto = intelecto;
-        this.sabiduria = sabiduria;
         this.tipo = tipo;
+        this.nivel = nivel;
+        this.exp = exp;
     }
 
-    @PrimaryKey@NonNull
     private String key ;
     public void setKey(String nada) { key =partida+nombre;}
 
@@ -51,28 +34,27 @@ public class Clase {
     private String altura;
     private String peso;
     private String dinero;
-    private String vida;
-    private String ataque;
-    private String defensa;
-    private String agilidad;
-    private String fuerza;
-    private String espiritu;
-    private String destreza;
-    private String resistencia;
-    private String suerte;
-    private String intelecto;
-    private String sabiduria;
+
     private String sexo;
     private String honorifico;
+    private String nivel;
+    private String exp ="20";
 
-//
-//    public String[] getTipo() {
-//        return tipo;
-//    }
-//
-//    public void setTipo(String[] tipo) {
-//        this.tipo = tipo;
-//    }
+    public String getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
+    }
+
+    public String getExp() {
+        return exp;
+    }
+
+    public void setExp(String exp) {
+        this.exp = exp;
+    }
 
     public String getNombre() {
         return nombre;
@@ -114,93 +96,7 @@ public class Clase {
         this.dinero = dinero;
     }
 
-    public String getVida() {
-        return vida;
-    }
 
-    public void setVida(String vida) {
-        this.vida = vida;
-    }
-
-    public String getAtaque() {
-        return ataque;
-    }
-
-    public void setAtaque(String ataque) {
-        this.ataque = ataque;
-    }
-
-    public String getDefensa() {
-        return defensa;
-    }
-
-    public void setDefensa(String defensa) {
-        this.defensa = defensa;
-    }
-
-    public String getAgilidad() {
-        return agilidad;
-    }
-
-    public void setAgilidad(String agilidad) {
-        this.agilidad = agilidad;
-    }
-
-    public String getFuerza() {
-        return fuerza;
-    }
-
-    public void setFuerza(String fuerza) {
-        this.fuerza = fuerza;
-    }
-
-    public String getEspiritu() {
-        return espiritu;
-    }
-
-    public void setEspiritu(String espiritu) {
-        this.espiritu = espiritu;
-    }
-
-    public String getDestreza() {
-        return destreza;
-    }
-
-    public void setDestreza(String destreza) {
-        this.destreza = destreza;
-    }
-
-    public String getResistencia() {
-        return resistencia;
-    }
-
-    public void setResistencia(String resistencia) {
-        this.resistencia = resistencia;
-    }
-
-    public String getSuerte() {
-        return suerte;
-    }
-
-    public void setSuerte(String suerte) {
-        this.suerte = suerte;
-    }
-
-    public String getIntelecto() {
-        return intelecto;
-    }
-
-    public void setIntelecto(String intelecto) {
-        this.intelecto = intelecto;
-    }
-
-    public String getSabiduria() {
-        return sabiduria;
-    }
-
-    public void setSabiduria(String sabiduria) {
-        this.sabiduria = sabiduria;
-    }
 
     public String getPartida() {
         return partida;

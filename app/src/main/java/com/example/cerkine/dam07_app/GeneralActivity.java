@@ -1,5 +1,7 @@
 package com.example.cerkine.dam07_app;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,7 +21,23 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class GeneralActivity extends AppCompatActivity {
+
+    List<String> listKey = new ArrayList<>();
+    List<String> listValue = new ArrayList<>();
+    String partida ="";
+
+    Clase clase;
+
+
 
 
 
@@ -43,6 +61,9 @@ public class GeneralActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
+        Bundle bundle = getIntent().getExtras();
+
+         partida= bundle.get(PartidaActivity.PARTIDA).toString();
 
 
         // Create the adapter that will return a fragment for each of the three
@@ -58,7 +79,33 @@ public class GeneralActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(partida).child(BaseDatos.STATS).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    listKey.add(snapshot.getKey());
+                    listValue.add(snapshot.getValue(String.class));
+                }
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(partida).child(BaseDatos.NOSTATS).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                clase = dataSnapshot.getValue(Clase.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
@@ -99,24 +146,33 @@ public class GeneralActivity extends AppCompatActivity {
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
-        PjFragment pjFragment = new PjFragment();
+
 
         @Override
         public Fragment getItem(int position) {
 
             switch (position){
                 case 0:
-                    return new StatsFragment();
+                    StatsFragment stFragment = new StatsFragment();
+                    stFragment.setApplication(GeneralActivity.this);
+                    stFragment.setListKey(listKey);
+                    stFragment.setListValue(listValue);
+                    stFragment.setPartida(partida);
+                    return stFragment;
                 case 1:
+                    PjFragment pjFragment = new PjFragment();
+                    pjFragment.setClase(clase);
                     return pjFragment;
                 case 2:
                     return new MapFragment();
                 case 3:
-                    return new NotasFragment();
+                    NotasFragment ntFragment = new NotasFragment();
+                    ntFragment.setApplication(GeneralActivity.this);
+                    return ntFragment;
             }
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return pjFragment;
+            return new PjFragment();
         }
 
         @Override
@@ -124,5 +180,11 @@ public class GeneralActivity extends AppCompatActivity {
             // Show 3 total pages.
             return 4;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(GeneralActivity.this,PartidaActivity.class);
+        startActivity(intent);
     }
 }

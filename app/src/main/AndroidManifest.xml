@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cerkine.dam07_app">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -27,9 +27,11 @@
         <activity
             android:name=".PartidaNuevaActivity"
             android:label="@string/title_activity_partida_nueva"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity android:name=".EleccionJugdorActivity" />
         <activity android:name=".RegistarPjAcitivity" />
+        <activity android:name=".ModificarStatActivity" />
+        <activity android:name=".EnviarMensajeActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.cerkine.dam07_app;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +9,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class PartidaRecyclerAdapter extends RecyclerView.Adapter<PartidaRecyclerAdapter.PartidaViewHolder> {
+public class PartidaRecyclerAdapter extends RecyclerView.Adapter<PartidaRecyclerAdapter.PartidaViewHolder>  {
 
     List<String> list;
+    PartidaActivity activity;
+    String partida;
 
-    PartidaRecyclerAdapter(List<String> list){
+    PartidaRecyclerAdapter(List<String> list,PartidaActivity application){
         this.list = list;
+        this.activity = application;
     }
 
     @Override
@@ -24,10 +28,23 @@ public class PartidaRecyclerAdapter extends RecyclerView.Adapter<PartidaRecycler
 
 
     @Override
-    public void onBindViewHolder(PartidaViewHolder holder, int position) {
+    public void onBindViewHolder(final PartidaViewHolder holder, final int position) {
 
 
         holder.partidaNombre.setText(list.get(position));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                partida = holder.partidaNombre.getText().toString();
+                Intent intent = new Intent(activity,GeneralActivity.class);
+                intent.putExtra(PartidaActivity.PARTIDA,partida);
+                activity.startActivity(intent);
+            }
+        });
+
+
+
     }
 
     @Override
@@ -39,9 +56,9 @@ public class PartidaRecyclerAdapter extends RecyclerView.Adapter<PartidaRecycler
         private TextView partidaNombre;
 
 
-        PartidaViewHolder(View itemPoem) {
-            super(itemPoem);
-            partidaNombre = itemPoem.findViewById(R.id.tvNombrePartida);
+        PartidaViewHolder(View itemPartida) {
+            super(itemPartida);
+            partidaNombre = itemPartida.findViewById(R.id.tvNombrePartida);
 
         }
     }

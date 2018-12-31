@@ -23,6 +23,8 @@ public class PartidaActivity extends AppCompatActivity {
     Clase clase;
     List<String> list = new ArrayList<>();
 
+    static final String PARTIDA ="PARTIDA_ID";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +87,7 @@ public class PartidaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (list.size()!=0) {
-                    PartidaRecyclerAdapter partidasRecyclerAdapter = new PartidaRecyclerAdapter(list);
+                    PartidaRecyclerAdapter partidasRecyclerAdapter = new PartidaRecyclerAdapter(list, PartidaActivity.this);
                     recyclerView.setAdapter(partidasRecyclerAdapter);
                     findViewById(R.id.btnCargarPartidas).setVisibility(View.INVISIBLE);
                 }

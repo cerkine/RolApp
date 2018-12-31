@@ -80,7 +80,8 @@ public class RegistarPjAcitivity extends AppCompatActivity {
 
                                 BaseDatos.crearUsuario(clase);
 
-                                Intent intent = new Intent(RegistarPjAcitivity.this, GeneralActivity.class);
+                                Intent intent = new Intent(RegistarPjAcitivity.this, PartidaActivity.class);
+
                                 startActivity(intent);
 
                             }

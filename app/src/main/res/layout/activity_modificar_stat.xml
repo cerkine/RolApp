@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModificarStatActivity">
+
+    <TextView
+        android:background="@drawable/tvmodificarstat"
+        android:id="@+id/tvStatGrande"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textAllCaps="true"
+        />
+
+    <TextView
+        android:id="@+id/tvExperiencia"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/tvmodificarstat"
+        android:text="@string/expRestante"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatGrande"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvValorExp"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/tvmodificarstat"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tvExperiencia"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatGrande" />
+
+    <TextView
+        android:background="@drawable/tvmodificarstat"
+        style="@style/Puntos"
+        android:id="@+id/tvValorStatGrande"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="152dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExperiencia"
+        android:textColor="@color/black"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/tvModStatGrande"
+        style="@style/Puntos"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="168dp"
+        android:background="@drawable/tvmodificarstat"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@+id/tvValorStatGrande"
+        app:layout_constraintTop_toBottomOf="@+id/tvExperiencia" />
+
+    <com.andexert.library.RippleView
+        android:id="@+id/minusStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorStatGrande">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:padding="10dp"
+            android:src="@drawable/icons8minus96" />
+
+    </com.andexert.library.RippleView>
+
+
+    <com.andexert.library.RippleView
+        android:id="@+id/plusStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        app:layout_constraintBottom_toTopOf="@id/tvValorStatGrande"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:padding="10dp"
+            android:src="@drawable/icons8plus96" />
+    </com.andexert.library.RippleView>
+
+</android.support.constraint.ConstraintLayout>

@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 public class PjFragment extends Fragment {
 
+    private Clase clase;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -16,6 +18,11 @@ public class PjFragment extends Fragment {
 
 
 
+
         return mView;
+    }
+
+    public void setClase(Clase clase) {
+        this.clase = clase;
     }
 }

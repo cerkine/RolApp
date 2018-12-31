@@ -31,6 +31,7 @@
     <string name="nombrePjRegistrar">Nombre</string>
     <string name="alturaPjRegistrar">Altura</string>
     <string name="pesoPjRegistrar">Peso</string>
+    <string name="expRestante">Experiencia Restante</string>
 
 
 </resources>
