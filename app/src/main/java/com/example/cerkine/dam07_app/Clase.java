@@ -20,7 +20,7 @@ class Clase {
     }
 
     private String key ;
-    public void setKey(String nada) { key =partida+nombre;}
+    public void setKey(String nada) { key =partida+","+nombre;}
 
     public String getKey(){return key;}
 

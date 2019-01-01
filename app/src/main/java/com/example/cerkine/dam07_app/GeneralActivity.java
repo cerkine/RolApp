@@ -33,7 +33,9 @@ public class GeneralActivity extends AppCompatActivity {
 
     List<String> listKey = new ArrayList<>();
     List<String> listValue = new ArrayList<>();
+    List<String> listDest = new ArrayList<>();
     String partida ="";
+    String key;
 
     Clase clase;
 
@@ -99,6 +101,23 @@ public class GeneralActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 clase = dataSnapshot.getValue(Clase.class);
+                key=clase.getKey();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        String tmp = partida.split(",")[0];
+
+        BaseDatos.myRef.child(BaseDatos.PARTIDAS).child(tmp).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    listDest.add(snapshot.getKey());
+                }
             }
 
             @Override
@@ -168,6 +187,8 @@ public class GeneralActivity extends AppCompatActivity {
                 case 3:
                     NotasFragment ntFragment = new NotasFragment();
                     ntFragment.setApplication(GeneralActivity.this);
+                    ntFragment.setClase(clase);
+                    ntFragment.setListDest(listDest);
                     return ntFragment;
             }
             // getItem is called to instantiate the fragment for the given page.

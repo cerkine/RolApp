@@ -27,6 +27,7 @@ public  class BaseDatos {
         clase.setKey("");
         myRef.child(USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(clase.getKey()).child(NOSTATS).setValue(clase);
         myRef.child(USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(clase.getKey()).child(STATS).setValue(new Estadistica());
+        myRef.child(PARTIDAS).child(clase.getPartida()).child(clase.getNombre()).child(MENSAJE).setValue("nada");
 
     }
 
