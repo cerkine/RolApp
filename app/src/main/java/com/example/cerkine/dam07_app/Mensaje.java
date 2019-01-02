@@ -1,6 +1,9 @@
 package com.example.cerkine.dam07_app;
 
-public class Mensaje {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Mensaje implements Parcelable {
     private String origen;
     private String dest;
     private String texto;
@@ -14,6 +17,14 @@ public class Mensaje {
         this.texto = texto;
         this.titulo = titulo;
         this.origen = origen;
+    }
+
+    public Mensaje(Parcel in) {
+        this.origen = in.readString();
+        this.dest = in.readString();
+        this.texto = in.readString();
+        this.titulo = in.readString();
+        this.id = in.readString();
     }
 
     public void setId(String id) {
@@ -49,4 +60,30 @@ public class Mensaje {
                 '}';
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+        parcel.writeString (this.origen);
+        parcel.writeString(this.dest);
+        parcel.writeString(this.texto);
+        parcel.writeString(this.titulo);
+        parcel.writeString(this.id);
+
+
+    }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Mensaje createFromParcel(Parcel in) {
+            return new Mensaje(in);
+        }
+
+        public Mensaje[] newArray(int size) {
+            return new Mensaje[size];
+        }
+    };
 }

@@ -34,11 +34,11 @@ public class RegistarPjAcitivity extends AppCompatActivity {
 
         Spinner spinner = findViewById(R.id.spClasePj);
         String[] clase = {"Guerrero","Mago","Cazador"};
-        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, clase));
+        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.spinner_item_calseraza,R.id.spdclaseraza, clase));
 
         Spinner spinner2 = findViewById(R.id.spSexoPj);
         String[] sexo = {"Hombre","Mujer","Otro"};
-        spinner2.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, sexo));
+        spinner2.setAdapter(new ArrayAdapter<String>(this,R.layout.spinner_item_calseraza,R.id.spdclaseraza, sexo));
 
 
 
@@ -81,7 +81,6 @@ public class RegistarPjAcitivity extends AppCompatActivity {
                                 BaseDatos.crearUsuario(clase);
 
                                 Intent intent = new Intent(RegistarPjAcitivity.this, PartidaActivity.class);
-
                                 startActivity(intent);
 
                             }

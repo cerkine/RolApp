@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.andexert.library.RippleView;
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -21,6 +24,9 @@ public class NotasFragment extends Fragment {
     private List<String> listDest = new ArrayList<>();
     String[] listDestArray ;
     RecyclerView recyclerView;
+    static RippleView rippleView ;
+
+    View.OnDragListener onDragListener ;
 
 
 
@@ -33,6 +39,7 @@ public class NotasFragment extends Fragment {
                              final Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View mView = inflater.inflate(R.layout.activity_notas, container, false);
+
 
         listDestArray = new String[listDest.size()];
 
@@ -58,13 +65,15 @@ public class NotasFragment extends Fragment {
 
 
         AdaptadorFirebase adaptadorFirebase = new AdaptadorFirebase(Mensaje.class,R.layout.item_mensaje
-                ,MensajeHolder.class,BaseDatos.myRef.child(BaseDatos.PARTIDAS).child(clase.getPartida()).child(clase.getNombre()).child(BaseDatos.MENSAJE),application);
-
+                ,MensajeHolder.class,  BaseDatos.myRef.child(BaseDatos.PARTIDAS).child(clase.getPartida()).child(clase.getNombre()).child(BaseDatos.MENSAJE),application);
+        adaptadorFirebase.setKeyPartida(clase.getPartida());
 
 
         recyclerView.setAdapter(adaptadorFirebase);
-        recyclerView.setLayoutManager(new GridLayoutManager(application,2,
-                LinearLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager( new LinearLayoutManager(application));
+        onDragListener=adaptadorFirebase.getOnDragListener();
+
+        mView.findViewById(R.id.btnEliminar).setOnDragListener(onDragListener);
 
         return mView;
     }

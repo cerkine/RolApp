@@ -83,16 +83,9 @@ public class PartidaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        findViewById(R.id.btnCargarPartidas).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (list.size()!=0) {
-                    PartidaRecyclerAdapter partidasRecyclerAdapter = new PartidaRecyclerAdapter(list, PartidaActivity.this);
-                    recyclerView.setAdapter(partidasRecyclerAdapter);
-                    findViewById(R.id.btnCargarPartidas).setVisibility(View.INVISIBLE);
-                }
-            }
-        });
+        PartidaRecyclerAdapter adaptadorFirebase = new PartidaRecyclerAdapter(Partida.class,R.layout.item_paritda
+                ,PartidaHolder.class,  BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()),PartidaActivity.this);
+        recyclerView.setAdapter(adaptadorFirebase);
 
     }
 }

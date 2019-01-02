@@ -27,7 +27,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GeneralActivity extends AppCompatActivity {
 
@@ -39,8 +41,7 @@ public class GeneralActivity extends AppCompatActivity {
 
     Clase clase;
 
-
-
+    static Map <String,Integer> idJug = new HashMap<>();
 
 
     /**

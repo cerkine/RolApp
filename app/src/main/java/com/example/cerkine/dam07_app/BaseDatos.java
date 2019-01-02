@@ -1,6 +1,7 @@
 package com.example.cerkine.dam07_app;
 
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public  class BaseDatos {
     final static String STATS = "stats";
     final static String PARTIDAS = "partidas";
     final static String MENSAJE = "mensajes";
+    static int ID = 0;
 
     public static void crearUsuario(Clase clase){
         clase.setKey("");
@@ -31,9 +33,27 @@ public  class BaseDatos {
 
     }
 
-    public static void mandarMensaje(String partida, String nombre, Mensaje mensaje){
+    public static void mandarMensaje(final String partida, final String nombre, final Mensaje mensaje){
 
-        myRef.child(PARTIDAS).child(partida).child(nombre).child(MENSAJE).child(mensaje.getId()).setValue(mensaje);
+
+        BaseDatos.myRef.child(BaseDatos.PARTIDAS).child(partida).child(mensaje.getDest()).child(MENSAJE).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    ID=Integer.parseInt(snapshot.getKey());
+                }
+                mensaje.setId(String.valueOf(ID+1));
+                myRef.child(PARTIDAS).child(partida).child(mensaje.getDest()).child(MENSAJE).child(String.valueOf(ID+1)).setValue(mensaje);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
 
 
     }

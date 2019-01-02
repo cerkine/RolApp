@@ -26,8 +26,8 @@
         android:layout_marginEnd="90dp"
         android:hint="@string/codigo_partida"
         android:inputType="text"
-        android:textColorHint="@color/amarillo_claro"
-        android:textColor="@color/amarillo_claro"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="90dp"
         android:hint="@string/codigo_partida"
-        android:textColorHint="@color/amarillo_claro"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/master"
-            android:textColor="@color/amarillo_claro"
+            android:textColor="@color/white"
             android:textSize="35sp" />
 
         <RadioButton
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/jugador"
-            android:textColor="@color/amarillo_claro"
+            android:textColor="@color/white"
             android:textSize="35sp"
             android:layout_marginTop="8dp"/>
 
@@ -89,10 +89,10 @@
         android:layout_marginEnd="100dp"
         android:hint="@string/nombrePj"
         android:inputType="text"
-        android:textColorHint="@color/amarillo_claro"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etnumeroPartida"
-        android:textColor="@color/amarillo_claro"/>
+        android:textColor="@color/white"/>
 
 
     <Button

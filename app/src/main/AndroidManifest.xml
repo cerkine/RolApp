@@ -31,9 +31,11 @@
         <activity android:name=".EleccionJugdorActivity" />
         <activity android:name=".RegistarPjAcitivity" />
         <activity android:name=".ModificarStatActivity" />
-        <activity android:name=".EnviarMensajeActivity"
-            android:theme="@style/ConBarra"
-            android:label="@string/mens_titulo"></activity>
+        <activity
+            android:name=".EnviarMensajeActivity"
+            android:label="@string/mens_titulo"
+            android:theme="@style/ConBarra" />
+        <activity android:name=".VerMensajeActivity"></activity>
     </application>
 
 </manifest>

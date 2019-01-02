@@ -32,4 +32,25 @@
 
     </com.andexert.library.RippleView>
 
+    <com.andexert.library.RippleView
+        android:id="@+id/btnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:padding="10dp"
+            android:src="@drawable/icons8basura24" />
+
+    </com.andexert.library.RippleView>
+
 </android.support.constraint.ConstraintLayout>
