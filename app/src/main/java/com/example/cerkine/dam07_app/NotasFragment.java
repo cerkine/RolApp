@@ -3,6 +3,9 @@ package com.example.cerkine.dam07_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,8 @@ public class NotasFragment extends Fragment {
     private Clase clase;
     private List<String> listDest = new ArrayList<>();
     String[] listDestArray ;
+    RecyclerView recyclerView;
+
 
 
     public void setApplication(GeneralActivity application) {
@@ -42,9 +47,24 @@ public class NotasFragment extends Fragment {
                 Intent intent = new Intent(application,EnviarMensajeActivity.class);
                 intent.putExtra("clase",clase.getNombre());
                 intent.putExtra("listDest",listDestArray);
+                intent.putExtra(PartidaActivity.PARTIDA,clase.getPartida());
                 startActivity(intent);
             }
         });
+
+        recyclerView = mView.findViewById(R.id.rvMensaje);
+
+
+
+
+        AdaptadorFirebase adaptadorFirebase = new AdaptadorFirebase(Mensaje.class,R.layout.item_mensaje
+                ,MensajeHolder.class,BaseDatos.myRef.child(BaseDatos.PARTIDAS).child(clase.getPartida()).child(clase.getNombre()).child(BaseDatos.MENSAJE),application);
+
+
+
+        recyclerView.setAdapter(adaptadorFirebase);
+        recyclerView.setLayoutManager(new GridLayoutManager(application,2,
+                LinearLayoutManager.VERTICAL,false));
 
         return mView;
     }
