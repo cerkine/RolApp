@@ -1,7 +1,5 @@
 package com.example.cerkine.dam07_app;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,14 +8,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
 public class EnviarMensajeActivity extends AppCompatActivity {
     String[] listDest = null;
     String partida ="";
@@ -25,6 +15,31 @@ public class EnviarMensajeActivity extends AppCompatActivity {
     Spinner spinnerDest;
     EditText etTitulo;
     EditText etText;
+
+    public String[] getListDest() {
+        return listDest;
+    }
+
+    public String getPartida() {
+        return partida;
+    }
+
+    public TextView getEt() {
+        return et;
+    }
+
+    public Spinner getSpinnerDest() {
+        return spinnerDest;
+    }
+
+    public EditText getEtTitulo() {
+        return etTitulo;
+    }
+
+    public EditText getEtText() {
+        return etText;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +70,7 @@ public class EnviarMensajeActivity extends AppCompatActivity {
 
                 Mensaje mensaje = new Mensaje(et.getText().toString(),spinnerDest.getSelectedItem().toString(),etText.getText().toString(),etTitulo.getText().toString());
 
-                BaseDatos.mandarMensaje(partida,et.getText().toString(),mensaje);
+                BaseDatos.mandarMensaje(partida,mensaje);
 
                onBackPressed();
             }

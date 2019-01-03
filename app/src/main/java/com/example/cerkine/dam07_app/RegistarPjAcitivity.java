@@ -1,6 +1,5 @@
 package com.example.cerkine.dam07_app;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -8,8 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.ContextMenu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -69,8 +66,15 @@ public class RegistarPjAcitivity extends AppCompatActivity {
                                 et = findViewById(R.id.etPesoPj);
                                 clase.setPeso(et.getText().toString());
 
+                                et = findViewById(R.id.etrazaPj);
+                                clase.setRaza(et.getText().toString());
+                                clase.setNivel("1");
+
+                                et= findViewById(R.id.etedadpj);
+                                clase.setEdad(et.getText().toString());
+
                                 sp = findViewById(R.id.spClasePj);
-                                clase.setTipo(sp.getSelectedItem().toString());
+                                clase.setClase(sp.getSelectedItem().toString());
 
                                 sp = findViewById(R.id.spSexoPj);
                                 clase.setSexo(sp.getSelectedItem().toString());
@@ -80,7 +84,8 @@ public class RegistarPjAcitivity extends AppCompatActivity {
 
                                 BaseDatos.crearUsuario(clase);
 
-                                Intent intent = new Intent(RegistarPjAcitivity.this, PartidaActivity.class);
+                                Intent intent = new Intent(RegistarPjAcitivity.this, GeneralActivity.class);
+                                intent.putExtra(PartidaActivity.PARTIDA,clase.getKey());
                                 startActivity(intent);
 
                             }
@@ -98,4 +103,7 @@ public class RegistarPjAcitivity extends AppCompatActivity {
 
     }
 
+    public Executor getExecutor() {
+        return executor;
+    }
 }

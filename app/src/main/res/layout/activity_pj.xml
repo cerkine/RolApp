@@ -1,6 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/fondoPjFrag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <CheckBox
+        android:id="@+id/chPjEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Editar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvNombreJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chPjEdit"
+        style="@style/PjNoStats"/>
+
+    <TextView
+        android:id="@+id/tvHonorificoJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/tvNombreJugador"
+        app:layout_constraintTop_toBottomOf="@id/chPjEdit"
+        style="@style/PjNoStats"/>
+
+    <TextView
+        android:id="@+id/tvRazaJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreJugador"
+        style="@style/PjNoStats"/>
+
+    <TextView
+        android:id="@+id/tvClaseJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSexoJugador"
+        style="@style/PjNoStats"/>
+
+
+    <TextView
+        android:id="@+id/tvSexoJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRazaJugador"
+        style="@style/PjNoStats"/>
+
+    <TextView
+        android:id="@+id/tvEdadJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvClaseJugador"
+        style="@style/PjNoStats"/>
+
+    <TextView
+        android:id="@+id/tvPesoJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEdadJugador"
+        style="@style/PjNoStats"/>
+
+    <TextView
+        android:id="@+id/tvAlturaJugador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPesoJugador"
+        style="@style/PjNoStats"/>
+
+    <TextView
+        android:id="@+id/tvNivelJugador"
+        style="@style/PjNoStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
+
+
+    <TextView
+        android:id="@+id/tvExpJugador"
+        style="@style/PjNoStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+    <TextView
+        style="@style/PjNoStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cm"
+        app:layout_constraintStart_toEndOf="@id/tvAlturaJugador"
+        app:layout_constraintTop_toBottomOf="@id/tvPesoJugador"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        />
+    <TextView
+        android:text="Kg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/PjNoStats"
+        app:layout_constraintStart_toEndOf="@id/tvPesoJugador"
+        app:layout_constraintTop_toBottomOf="@id/tvEdadJugador"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/PjNoStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Pts."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvNivelJugador" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/PjNoStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="24dp"
+        android:text="Lv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:background="@drawable/btnredondoregistrar"
+        android:id="@+id/addLvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="68dp"
+        android:text="LVL  UP!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible"/>
+
+    <Button
+        android:background="@drawable/btnredondoregistrar"
+        android:id="@+id/subLvl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="68dp"
+        android:text="LVL DOWN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addLvl"
+        android:visibility="invisible"/>
 </android.support.constraint.ConstraintLayout>

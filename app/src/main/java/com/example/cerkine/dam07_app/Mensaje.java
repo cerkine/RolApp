@@ -27,6 +27,22 @@ public class Mensaje implements Parcelable {
         this.id = in.readString();
     }
 
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+
+    public void setDest(String dest) {
+        this.dest = dest;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -77,6 +93,10 @@ public class Mensaje implements Parcelable {
 
     }
 
+    public static Creator getCREATOR() {
+        return CREATOR;
+    }
+
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
         public Mensaje createFromParcel(Parcel in) {
             return new Mensaje(in);
@@ -86,4 +106,5 @@ public class Mensaje implements Parcelable {
             return new Mensaje[size];
         }
     };
+
 }

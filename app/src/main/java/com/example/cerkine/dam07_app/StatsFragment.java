@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -52,6 +50,18 @@ public class StatsFragment extends Fragment {
         recyclerView.setAdapter(statsRecyclerAdapter);
 
         return mView;
+    }
+
+    public List<String> getListKey() {
+        return listKey;
+    }
+
+    public List<String> getListValue() {
+        return listValue;
+    }
+
+    public String getPartida() {
+        return partida;
     }
 
     public void setPartida(String partida) {

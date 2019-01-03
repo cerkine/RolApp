@@ -14,6 +14,7 @@ public class Estadistica {
     private String intelecto="0";
     private String sabiduria="0";
 
+
     public String getVida() {
         return vida;
     }

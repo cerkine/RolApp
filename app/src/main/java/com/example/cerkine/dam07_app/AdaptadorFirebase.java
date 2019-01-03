@@ -3,16 +3,11 @@ package com.example.cerkine.dam07_app;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.view.DragEvent;
 import android.view.View;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 
 public class AdaptadorFirebase extends FirebaseRecyclerAdapter<Mensaje, MensajeHolder> {
 
@@ -57,6 +52,7 @@ public class AdaptadorFirebase extends FirebaseRecyclerAdapter<Mensaje, MensajeH
                 View.DragShadowBuilder myShadowBuilder = new View.DragShadowBuilder(view);
                 view.startDrag(data,myShadowBuilder,view,0);
 
+
                 BaseDatos.myRef.child(BaseDatos.PARTIDAS).child(keyPartida).child(model.getDest()).child(BaseDatos.MENSAJE).child(model.getId()).getRef().removeValue();
 
                 onDragListener =new View.OnDragListener() {
@@ -84,5 +80,11 @@ public class AdaptadorFirebase extends FirebaseRecyclerAdapter<Mensaje, MensajeH
         });
     }
 
+    public Context getContext() {
+        return context;
+    }
 
+    public String getKeyPartida() {
+        return keyPartida;
+    }
 }

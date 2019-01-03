@@ -7,16 +7,16 @@ class Clase {
 
     }
 
-    public Clase(String partida, String nombre, String edad, String altura, String peso, String dinero, String tipo,String nivel, String exp) {
+    public Clase(String partida, String nombre, String edad, String altura, String peso, String dinero, String clase, String nivel, String puntos) {
         this.partida = partida;
         this.nombre = nombre;
         this.edad = edad;
         this.altura = altura;
         this.peso = peso;
         this.dinero = dinero;
-        this.tipo = tipo;
+        this.clase = clase;
         this.nivel = nivel;
-        this.exp = exp;
+        this.puntos = puntos;
     }
 
     private String key ;
@@ -28,17 +28,27 @@ class Clase {
     private String nombre;
 
 
-    private String tipo ;
+
+
+    private String clase;
 
     private String edad;
     private String altura;
     private String peso;
     private String dinero;
-
+    private String raza;
     private String sexo;
     private String honorifico;
     private String nivel;
-    private String exp ="20";
+    private String puntos ="20";
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
 
     public String getNivel() {
         return nivel;
@@ -48,12 +58,12 @@ class Clase {
         this.nivel = nivel;
     }
 
-    public String getExp() {
-        return exp;
+    public String getPuntos() {
+        return puntos;
     }
 
-    public void setExp(String exp) {
-        this.exp = exp;
+    public void setPuntos(String puntos) {
+        this.puntos = puntos;
     }
 
     public String getNombre() {
@@ -106,9 +116,9 @@ class Clase {
         this.partida = partida;
     }
 
-    public String getTipo(){ return tipo;}
+    public String getClase(){ return clase;}
 
-    public void setTipo(String tipo){ this.tipo = tipo;}
+    public void setClase(String clase){ this.clase = clase;}
 
     public String getSexo(){return sexo;}
 

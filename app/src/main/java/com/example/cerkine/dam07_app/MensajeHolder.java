@@ -14,4 +14,12 @@ public  class MensajeHolder extends RecyclerView.ViewHolder {
         origen = itemView.findViewById(R.id.tvOrigenMensaje);
         titulo = itemView.findViewById(R.id.tvTituloMensaje);
     }
+
+    public TextView getOrigen() {
+        return origen;
+    }
+
+    public TextView getTitulo() {
+        return titulo;
+    }
 }

@@ -1,15 +1,16 @@
 package com.example.cerkine.dam07_app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -87,5 +88,44 @@ public class PartidaActivity extends AppCompatActivity {
                 ,PartidaHolder.class,  BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()),PartidaActivity.this);
         recyclerView.setAdapter(adaptadorFirebase);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        final AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(PartidaActivity.this, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(PartidaActivity.this);
+        }
+        builder.setTitle("Desea Salir de la Aplicación?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        moveTaskToBack(true);
+                        finish();
+                    }
+                })
+            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                }
+            })
+            .setIcon(android.R.drawable.ic_lock_power_off)
+                        .show();
+
+    }
+
+    public Clase getClase() {
+        return clase;
+    }
+
+    public List<String> getList() {
+        return list;
+    }
+
+    public static String getPARTIDA() {
+        return PARTIDA;
     }
 }

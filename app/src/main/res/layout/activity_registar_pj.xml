@@ -23,7 +23,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="84dp"
         android:inputType="text"
-        android:hint="@string/nombrePjRegistrar"
+        android:hint="@string/honorificoPjRegistrar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textColorHint="@color/white"
@@ -106,18 +106,20 @@
 
 
     <Button
-            android:id="@+id/btnAceptarPj"
-            style="@style/textLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/btnredondoentrar"
-            android:hint="@string/loginbtn"
-            android:textColorHint="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spClasePj"
-            android:layout_marginStart="148dp"/>
+        android:id="@+id/btnAceptarPj"
+        style="@style/textLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/btnredondoentrar"
+        android:hint="@string/loginbtn"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spClasePj" />
 
 
 </android.support.constraint.ConstraintLayout>

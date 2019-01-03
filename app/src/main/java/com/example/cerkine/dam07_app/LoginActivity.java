@@ -6,10 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
@@ -22,7 +21,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import com.google.android.gms.auth.api.Auth;
@@ -34,11 +32,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "SignInActivity";
     private FirebaseAuth mAuth;
+    public GoogleApiClient mGoogleApiClient;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_login);
         GlideApp.with(this).load(R.drawable.fondoinicio).into((ImageView)findViewById(R.id.fondoLog));
 
@@ -48,6 +48,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+        mGoogleApiClient.connect();
 
         final GoogleApiClient mGoogleSignInClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
@@ -56,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         mAuth = FirebaseAuth.getInstance();
 
-        findViewById(R.id.btnRegistar).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnLogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent sign = Auth.GoogleSignInApi.getSignInIntent(mGoogleSignInClient);
@@ -64,17 +68,32 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
         });
 
-        findViewById(R.id.btnLogin).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnRegistar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Auth.GoogleSignInApi.signOut(mGoogleSignInClient).setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(@NonNull Status status) {
-
+                        Intent sign = Auth.GoogleSignInApi.getSignInIntent(mGoogleSignInClient);
+                        startActivityForResult(sign, RC_SIGN_IN);
                     }
                 });
             }
         });
+
+        findViewById(R.id.btnLogout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Auth.GoogleSignInApi.signOut(mGoogleSignInClient).setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(@NonNull Status status) {
+                        Toast.makeText(LoginActivity.this,"Desconectado",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+            }
+        });
+
     }
 
     @Override
@@ -117,5 +136,17 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                     }
                 });
+    }
+
+    public static int getRcSignIn() {
+        return RC_SIGN_IN;
+    }
+
+    public static String getTAG() {
+        return TAG;
+    }
+
+    public FirebaseAuth getmAuth() {
+        return mAuth;
     }
 }

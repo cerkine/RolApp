@@ -2,26 +2,13 @@ package com.example.cerkine.dam07_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class PartidaNuevaActivity extends AppCompatActivity {
     EditText etNombrePj;
@@ -41,7 +28,7 @@ public class PartidaNuevaActivity extends AppCompatActivity {
         etNombrePj = findViewById(R.id.etnombrePj);
 
         etCodigoPatida = findViewById(R.id.etnumeroPartida);
-        tvCodigoPartida = findViewById(R.id.tvnumeroPartida);
+
 
         btnCrearPartida = findViewById(R.id.btnCrearPartida);
         btnUnirsePartida = findViewById(R.id.btnUnirsePartida);
@@ -80,15 +67,7 @@ public class PartidaNuevaActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btnCrearPartida).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PartidaNuevaActivity.this, EleccionJugdorActivity.class);
 
-                intent.putExtra("keyPartida",tvCodigoPartida.getText().toString());
-                startActivity(intent);
-            }
-        });
 
         findViewById(R.id.btnUnirsePartida).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,5 +79,33 @@ public class PartidaNuevaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public EditText getEtNombrePj() {
+        return etNombrePj;
+    }
+
+    public TextView getTvCodigoPartida() {
+        return tvCodigoPartida;
+    }
+
+    public Button getBtnCrearPartida() {
+        return btnCrearPartida;
+    }
+
+    public Button getBtnUnirsePartida() {
+        return btnUnirsePartida;
+    }
+
+    public RadioButton getRdbtnMaster() {
+        return rdbtnMaster;
+    }
+
+    public RadioButton getRdbtnJugador() {
+        return rdbtnJugador;
+    }
+
+    public EditText getEtCodigoPatida() {
+        return etCodigoPatida;
     }
 }

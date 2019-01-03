@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Dam07_App</string>
+    <string name="app_name">RolApp</string>
     <string name="mens_titulo">Mensaje</string>
     <string name="loginbtn">Entrar</string>
-    <string name="registarbtn">Registrar</string>
+    <string name="registarbtn">Cambiar Cuenta</string>
+    <string name="logout">Log out</string>
     <string name="usuario">Usuario</string>
     <string name="contraseñaUsuario">Contraseña</string>
     <string name="contraseñaRepiteUsuario">Repite Contraseña</string>
@@ -31,8 +32,9 @@
     <string name="edadPjRegistrar">Edad</string>
     <string name="nombrePjRegistrar">Nombre</string>
     <string name="alturaPjRegistrar">Altura</string>
+    <string name="honorificoPjRegistrar">Honorifico</string>
     <string name="pesoPjRegistrar">Peso</string>
-    <string name="expRestante">Experiencia Restante</string>
+    <string name="expRestante">Puntos Restantes</string>
 
 
 </resources>

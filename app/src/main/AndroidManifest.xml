@@ -6,36 +6,34 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/straw"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/straw"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LogoActivity">
+        <activity android:name="com.example.cerkine.dam07_app.LogoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".PartidaActivity" />
-        <activity android:name=".RegistrarActivity" />
+        <activity android:name="com.example.cerkine.dam07_app.LoginActivity" />
+        <activity android:name="com.example.cerkine.dam07_app.PartidaActivity" />
         <activity
-            android:name=".GeneralActivity"
+            android:name="com.example.cerkine.dam07_app.GeneralActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".PartidaNuevaActivity"
+            android:name="com.example.cerkine.dam07_app.PartidaNuevaActivity"
             android:label="@string/title_activity_partida_nueva"
             android:theme="@style/AppTheme" />
-        <activity android:name=".EleccionJugdorActivity" />
-        <activity android:name=".RegistarPjAcitivity" />
-        <activity android:name=".ModificarStatActivity" />
+        <activity android:name="com.example.cerkine.dam07_app.RegistarPjAcitivity" />
+        <activity android:name="com.example.cerkine.dam07_app.ModificarStatActivity" />
         <activity
-            android:name=".EnviarMensajeActivity"
+            android:name="com.example.cerkine.dam07_app.EnviarMensajeActivity"
             android:label="@string/mens_titulo"
             android:theme="@style/ConBarra" />
-        <activity android:name=".VerMensajeActivity"></activity>
+        <activity android:name="com.example.cerkine.dam07_app.VerMensajeActivity"></activity>
     </application>
 
 </manifest>

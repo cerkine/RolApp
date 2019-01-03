@@ -9,9 +9,13 @@ public class PartidaHolder extends RecyclerView.ViewHolder {
     public  TextView partidaNombre;
 
 
-        PartidaHolder(View itemPartida) {
+       public  PartidaHolder(View itemPartida) {
             super(itemPartida);
             partidaNombre = itemPartida.findViewById(R.id.tvNombrePartida);
 
         }
+
+    public TextView getPartidaNombre() {
+        return partidaNombre;
+    }
 }

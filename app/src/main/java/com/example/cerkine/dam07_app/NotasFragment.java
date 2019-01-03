@@ -3,7 +3,6 @@ package com.example.cerkine.dam07_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,11 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.andexert.library.RippleView;
-import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 public class NotasFragment extends Fragment {
 
@@ -39,6 +36,7 @@ public class NotasFragment extends Fragment {
                              final Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View mView = inflater.inflate(R.layout.activity_notas, container, false);
+
 
 
         listDestArray = new String[listDest.size()];
@@ -84,5 +82,33 @@ public class NotasFragment extends Fragment {
 
     public void setListDest(List<String> listDest) {
         this.listDest = listDest;
+    }
+
+    public GeneralActivity getApplication() {
+        return application;
+    }
+
+    public Clase getClase() {
+        return clase;
+    }
+
+    public List<String> getListDest() {
+        return listDest;
+    }
+
+    public String[] getListDestArray() {
+        return listDestArray;
+    }
+
+    public RecyclerView getRecyclerView() {
+        return recyclerView;
+    }
+
+    public static RippleView getRippleView() {
+        return rippleView;
+    }
+
+    public View.OnDragListener getOnDragListener() {
+        return onDragListener;
     }
 }

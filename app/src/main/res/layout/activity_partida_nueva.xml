@@ -32,28 +32,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-    <TextView
-        android:id="@+id/tvnumeroPartida"
-        style="@style/textLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="90dp"
-        android:hint="@string/codigo_partida"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="72dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -65,16 +50,18 @@
             android:checked="true"
             android:text="@string/master"
             android:textColor="@color/white"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            android:visibility="invisible" />
 
         <RadioButton
             android:id="@+id/btnJugador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:checked="true"
             android:text="@string/jugador"
             android:textColor="@color/white"
-            android:textSize="35sp"
-            android:layout_marginTop="8dp"/>
+            android:textSize="35sp" />
 
     </RadioGroup>
 
@@ -101,12 +88,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="148dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+
         android:layout_marginBottom="108dp"
         android:background="@drawable/btnredondoentrar"
         android:hint="@string/unirsepartidabtn"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -115,14 +105,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="148dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
 
+        android:layout_marginBottom="108dp"
         android:background="@drawable/btnredondoregistrar"
         android:hint="@string/crearpartidabtn"
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="invisible"/>
 
 
 

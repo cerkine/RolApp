@@ -3,23 +3,15 @@ package com.example.cerkine.dam07_app;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -69,12 +61,14 @@ public class GeneralActivity extends AppCompatActivity {
          partida= bundle.get(PartidaActivity.PARTIDA).toString();
 
 
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
+
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -103,6 +97,7 @@ public class GeneralActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 clase = dataSnapshot.getValue(Clase.class);
                 key=clase.getKey();
+
             }
 
             @Override
@@ -111,9 +106,11 @@ public class GeneralActivity extends AppCompatActivity {
             }
         });
 
-        String tmp = partida.split(",")[0];
+        String tmp[] = partida.split(",");
 
-        BaseDatos.myRef.child(BaseDatos.PARTIDAS).child(tmp).addValueEventListener(new ValueEventListener() {
+        BaseDatos.primerMensaje(tmp[0],tmp[1]);
+
+        BaseDatos.myRef.child(BaseDatos.PARTIDAS).child(tmp[0]).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
@@ -126,6 +123,7 @@ public class GeneralActivity extends AppCompatActivity {
 
             }
         });
+
 
     }
 
@@ -163,6 +161,7 @@ public class GeneralActivity extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -181,15 +180,15 @@ public class GeneralActivity extends AppCompatActivity {
                     return stFragment;
                 case 1:
                     PjFragment pjFragment = new PjFragment();
-                    pjFragment.setClase(clase);
+//                    pjFragment.setClase(clase);
+                    pjFragment.setKey(partida);
                     return pjFragment;
                 case 2:
-                    return new MapFragment();
-                case 3:
                     NotasFragment ntFragment = new NotasFragment();
                     ntFragment.setApplication(GeneralActivity.this);
                     ntFragment.setClase(clase);
                     ntFragment.setListDest(listDest);
+
                     return ntFragment;
             }
             // getItem is called to instantiate the fragment for the given page.
@@ -200,7 +199,7 @@ public class GeneralActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 4;
+            return 3;
         }
     }
 
@@ -209,4 +208,42 @@ public class GeneralActivity extends AppCompatActivity {
         Intent intent = new Intent(GeneralActivity.this,PartidaActivity.class);
         startActivity(intent);
     }
+
+    public List<String> getListKey() {
+        return listKey;
+    }
+
+    public List<String> getListValue() {
+        return listValue;
+    }
+
+    public List<String> getListDest() {
+        return listDest;
+    }
+
+    public String getPartida() {
+        return partida;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public Clase getClase() {
+        return clase;
+    }
+
+    public static Map<String, Integer> getIdJug() {
+        return idJug;
+    }
+
+    public SectionsPagerAdapter getmSectionsPagerAdapter() {
+        return mSectionsPagerAdapter;
+    }
+
+    public ViewPager getmViewPager() {
+        return mViewPager;
+    }
+
+
 }

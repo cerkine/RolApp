@@ -20,7 +20,7 @@ public class VerMensajeActivity extends AppCompatActivity {
         tvDest.setText(mensaje.getDest());
 
         TextView tvTitulo = findViewById(R.id.tvmens_titulo2);
-        tvTitulo.setText(mensaje.getTexto());
+        tvTitulo.setText(mensaje.getTitulo());
 
         TextView tvTexto = findViewById(R.id.tvmens_texto2);
         tvTexto.setText(mensaje.getTexto());

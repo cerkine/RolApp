@@ -14,6 +14,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ModificarStatActivity extends AppCompatActivity {
     String partida ="";
+    TextView tvMod;
+    String valorStat;
+
+    public String getPartida() {
+        return partida;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +31,15 @@ public class ModificarStatActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         String nombreStat = bundle.getString("nombre");
-        String valorStat = bundle.getString("valor");
+        valorStat = bundle.getString("valor");
         partida = bundle.getString(PartidaActivity.PARTIDA);
 
 
         final TextView tvNombre = findViewById(R.id.tvStatGrande);
         final TextView tvValor = findViewById(R.id.tvValorStatGrande);
-        TextView tvMod = findViewById(R.id.tvModStatGrande);
+        tvMod = findViewById(R.id.tvModStatGrande);
         final TextView tvExp = findViewById(R.id.tvValorExp);
-        BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(partida).child(BaseDatos.NOSTATS).child("exp").addValueEventListener(new ValueEventListener() {
+        BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(partida).child(BaseDatos.NOSTATS).child("puntos").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 tvExp.setText(dataSnapshot.getValue(String.class));
@@ -44,7 +50,7 @@ public class ModificarStatActivity extends AppCompatActivity {
 
             }
         });
-        tvMod.setText(String.valueOf((Integer.parseInt(valorStat))-10/2));
+        tvMod.setText(String.valueOf(((Integer.parseInt(valorStat))-10)/2));
 
         tvNombre.setText(nombreStat);
         tvValor.setText(valorStat);
@@ -53,12 +59,16 @@ public class ModificarStatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int num = Integer.parseInt(tvValor.getText().toString());
-                if(num<30) {
+                int punt= Integer.parseInt(tvExp.getText().toString());
+                if(num<30 && punt>0) {
                     String result = String.valueOf(num + 1);
+                    String punResult = String.valueOf(punt-1);
                     String stat = tvNombre.getText().toString().toLowerCase();
 
                     BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(partida).child(BaseDatos.STATS).child(stat).setValue(result);
                     tvValor.setText(result);
+                    BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(partida).child(BaseDatos.NOSTATS).child("puntos").setValue(punResult);
+                    tvMod.setText(String.valueOf(((Integer.parseInt(tvValor.getText().toString()))-10)/2));
                 }
             }
         });
@@ -66,14 +76,18 @@ public class ModificarStatActivity extends AppCompatActivity {
         findViewById(R.id.minusStat).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int punt= Integer.parseInt(tvExp.getText().toString());
 
                 int num = Integer.parseInt(tvValor.getText().toString());
                 if (num >0) {
                     String result = String.valueOf(num - 1);
+                    String punResult = String.valueOf(punt+1);
                     String stat = tvNombre.getText().toString().toLowerCase();
 
                     BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(partida).child(BaseDatos.STATS).child(stat).setValue(result);
                     tvValor.setText(result);
+                    BaseDatos.myRef.child(BaseDatos.USUARIOS).child(FirebaseAuth.getInstance().getUid()).child(partida).child(BaseDatos.NOSTATS).child("puntos").setValue(punResult);
+                    tvMod.setText(String.valueOf(((Integer.parseInt(tvValor.getText().toString()))-10)/2));
                 }
             }
         });

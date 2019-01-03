@@ -16,8 +16,8 @@ import java.util.List;
 
 public class PartidaRecyclerAdapter extends FirebaseRecyclerAdapter<Partida, PartidaHolder>  {
 
-    Context context;
-    List<String> partida = new ArrayList<>();
+    public  Context context;
+    public  List<String> partida = new ArrayList<>();
 
 
     public PartidaRecyclerAdapter(Class<Partida> modelClass, int modelLayout, Class<PartidaHolder> viewHolderClass, DatabaseReference ref, Context c){
@@ -40,15 +40,27 @@ public class PartidaRecyclerAdapter extends FirebaseRecyclerAdapter<Partida, Par
 
     @Override
     protected void populateViewHolder(final PartidaHolder viewHolder, final Partida model, final int position) {
+        if (partida.size()!=position){
         viewHolder.partidaNombre.setText(partida.get(position));
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String nombreId =partida.get(position).split(",")[1];
+                String partidaId =partida.get(position).split(",")[0];
+                BaseDatos.primerMensaje(partidaId,nombreId);
                 Intent intent = new Intent(context,GeneralActivity.class);
                 intent.putExtra(PartidaActivity.PARTIDA,partida.get(position));
                 context.startActivity(intent);
             }
         });
+        }
     }
 
+    public Context getContext() {
+        return context;
+    }
+
+    public List<String> getPartida() {
+        return partida;
+    }
 }

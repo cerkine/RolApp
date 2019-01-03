@@ -76,5 +76,33 @@ public class StatsRecyclerAdapter extends RecyclerView.Adapter<StatsRecyclerAdap
             statMod = itemStat.findViewById(R.id.tvStatMod);
 
         }
+
+        public TextView getStatNombre() {
+            return statNombre;
+        }
+
+        public TextView getStatValor() {
+            return statValor;
+        }
+
+        public TextView getStatMod() {
+            return statMod;
+        }
+    }
+
+    public List<String> getListKey() {
+        return listKey;
+    }
+
+    public List<String> getListValue() {
+        return listValue;
+    }
+
+    public GeneralActivity getActivity() {
+        return activity;
+    }
+
+    public String getPartida() {
+        return partida;
     }
 }
