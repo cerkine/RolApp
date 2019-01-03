@@ -11,29 +11,37 @@
         android:roundIcon="@drawable/straw"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.cerkine.dam07_app.LogoActivity">
+        <activity android:name="com.example.cerkine.dam07_app.LogoActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.cerkine.dam07_app.LoginActivity" />
-        <activity android:name="com.example.cerkine.dam07_app.PartidaActivity" />
+        <activity android:name="com.example.cerkine.dam07_app.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.example.cerkine.dam07_app.PartidaActivity" android:screenOrientation="portrait"/>
         <activity
             android:name="com.example.cerkine.dam07_app.GeneralActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.example.cerkine.dam07_app.PartidaNuevaActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_partida_nueva"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.example.cerkine.dam07_app.RegistarPjAcitivity" />
-        <activity android:name="com.example.cerkine.dam07_app.ModificarStatActivity" />
+        <activity android:name="com.example.cerkine.dam07_app.RegistarPjAcitivity" android:screenOrientation="portrait"
+            />
+        <activity android:name="com.example.cerkine.dam07_app.ModificarStatActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.example.cerkine.dam07_app.EnviarMensajeActivity"
+            android:screenOrientation="portrait"
             android:label="@string/mens_titulo"
             android:theme="@style/ConBarra" />
-        <activity android:name="com.example.cerkine.dam07_app.VerMensajeActivity"></activity>
+        <activity android:name="com.example.cerkine.dam07_app.VerMensajeActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
